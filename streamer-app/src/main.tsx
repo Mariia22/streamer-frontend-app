@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import StreamerFormPage from './pages/StreamerFormPage.tsx'
+import App from './pages/App.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <StreamerFormPage />
+    <App />
   </React.StrictMode>,
 )
