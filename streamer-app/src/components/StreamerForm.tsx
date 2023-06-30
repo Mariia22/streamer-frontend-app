@@ -1,17 +1,23 @@
-import { useState } from 'react'
+import axios from 'axios';
+import { FormEvent, useState } from 'react';
+import { baseURLStreamers } from '../utils/const';
 
 const StreamerForm = () => {
-  const [value, setValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  function onSubmit(event: { preventDefault: () => void; }) {
+  function onSubmit(event: FormEvent) {
+    setIsLoading(true)
     event.preventDefault();
-    setIsLoading(true);
+    axios.post(baseURLStreamers, {
+      name: "Mary",
+      platform: "Tik Tok",
+      description: "ckdncjkn"
+    })
+      .finally(() => setIsLoading(false))
   }
 
   return (
     <form onSubmit={onSubmit}>
-      <input onChange={e => setValue(e.target.value)} />
       <button type="submit" disabled={isLoading}>Submit</button>
     </form>
   );
