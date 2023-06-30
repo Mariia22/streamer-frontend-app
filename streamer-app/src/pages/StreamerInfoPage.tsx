@@ -1,8 +1,9 @@
 
 const StreamerInfoPage = () => {
   return (
-    <div>StreamerInfo</div>
+    <div>StreamerInfoPage</div>
   )
+
 }
 
 export default StreamerInfoPage

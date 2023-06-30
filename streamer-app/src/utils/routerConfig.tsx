@@ -9,7 +9,7 @@ export const routerConfig = [
   },
   {
     id: 1,
-    path: 'streamers/:id',
+    path: 'streamer/:id',
     element: <StreamerInfoPage />,
   },
 ];
