@@ -16,8 +16,9 @@ const StreamerForm = () => {
       description: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       handleSubmit(values);
+      resetForm();
     },
   });
 
@@ -46,7 +47,8 @@ const StreamerForm = () => {
         alignItems: 'center',
         width: '50%',
         padding: '20px',
-        margin: '10px 0 30px 24px',
+        margin: '10px 0 10px 24px',
+        backgroundColor: baseTheme.palette.primary.light,
         border: `3px solid ${baseTheme.palette.primary.contrastText}`,
         borderRadius: '8px',
         boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04)',
@@ -73,7 +75,8 @@ const StreamerForm = () => {
         </Select>
       </FormControl>
       <TextField
-        multiline={true}
+        multiline
+        rows={4}
         fullWidth
         id="description"
         name="description"

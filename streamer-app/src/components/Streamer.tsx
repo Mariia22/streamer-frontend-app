@@ -27,7 +27,9 @@ const Streamer = (streamer: StreamerType) => {
         }}
       >
         <ChangeButtonVote name="add" id={streamer._id} />
-        <Typography component="span">{streamer.vote}</Typography>
+        <Typography component="span" sx={{ fontWeight: '700' }}>
+          {streamer.vote}
+        </Typography>
         <ChangeButtonVote name="subtract" id={streamer._id} />
       </Stack>
       <NavLink
@@ -36,12 +38,13 @@ const Streamer = (streamer: StreamerType) => {
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
+          color: `${baseTheme.palette.primary.dark}`,
           textDecoration: 'none',
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography>{streamer.name}</Typography>
-          <Typography>{streamer.platform}</Typography>
+          <Typography variant="h4">{streamer.name}</Typography>
+          <Typography sx={{ color: `${baseTheme.palette.primary.contrastText}` }}>{streamer.platform}</Typography>
         </Box>
         <Typography>{streamer.description}</Typography>
       </NavLink>

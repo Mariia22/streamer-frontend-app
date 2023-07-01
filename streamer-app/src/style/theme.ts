@@ -6,6 +6,7 @@ export const baseTheme = createTheme({
       main: '#F4F5F4',
       light: '#FFFFFF',
       contrastText: '#FEBB00',
+      dark: '#000000',
     },
   },
   typography: {
@@ -13,6 +14,10 @@ export const baseTheme = createTheme({
     fontSize: 16,
     h1: {
       fontSize: 32,
+      fontWeight: 700,
+    },
+    h4: {
+      fontSize: 20,
       fontWeight: 700,
     },
   },
@@ -67,6 +72,13 @@ const theme = createTheme({
             backgroundColor: baseTheme.palette.primary.contrastText,
             opacity: '70%',
           },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '0px',
         },
       },
     },
