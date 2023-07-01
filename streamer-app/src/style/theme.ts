@@ -33,6 +33,43 @@ const theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      defaultProps: {
+        variant: 'outlined',
+      },
+      variants: [
+        {
+          props: { type: 'text' },
+          style: {
+            '& .MuiOutlinedInput-input': {
+              paddingRight: '12px',
+              paddingLeft: '12px',
+            },
+          },
+        },
+      ],
+    },
+    MuiButton: {
+      styleOverrides: {
+        contained: {
+          minWidth: '200px',
+          minHeight: '45px',
+          padding: '8px 16px',
+          color: baseTheme.palette.primary.light,
+          backgroundColor: baseTheme.palette.primary.contrastText,
+          textAlign: 'center',
+          border: 'none',
+          borderRadius: '2px',
+          boxShadow: 'none',
+          marginTop: '20px',
+          textTransform: 'none',
+          '&:hover': {
+            backgroundColor: baseTheme.palette.primary.contrastText,
+            opacity: '70%',
+          },
+        },
+      },
+    },
   },
   palette: baseTheme.palette,
   typography: baseTheme.typography,
