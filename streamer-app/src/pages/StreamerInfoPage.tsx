@@ -1,7 +1,11 @@
+import { Stack, Typography } from "@mui/material"
 
 const StreamerInfoPage = () => {
   return (
-    <div>StreamerInfoPage</div>
+    <Stack>
+      <Typography variant="h2">Streamer's info</Typography>
+      <div>StreamerInfoPage</div>
+    </Stack>
   )
 
 }

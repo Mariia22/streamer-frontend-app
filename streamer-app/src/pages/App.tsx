@@ -3,13 +3,13 @@ import { routerConfig } from "../utils/routerConfig";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        {routerConfig.map(({ id, path, element }) => {
-          return <Route key={id} path={path} element={element} />;
-        })}
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          {routerConfig.map(({ id, path, element }) => {
+            return <Route key={id} path={path} element={element} />;
+          })}
+        </Routes>
+      </BrowserRouter>
   )
 }
 

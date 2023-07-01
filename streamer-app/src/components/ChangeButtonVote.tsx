@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { baseURLStreamers } from '../utils/const';
+import { IconButton } from '@mui/material';
+import IconBxsDownArrowSquare from './IconDownArrow';
+import IconBxsUpArrowSquare from './IconUpArrow';
 
 type ChangeButtonVoteProps = {
   id: string,
@@ -7,18 +10,20 @@ type ChangeButtonVoteProps = {
 }
 
 const ChangeButtonVote = ({ name, id }: ChangeButtonVoteProps) => {
-  const buttonName = name[0].toUpperCase() + name.slice(1);
+  const isVoteUp = name === 'add' ? true : false;
 
-  function changeVote(action: typeof name) {
+  function changeVote() {
     let requestParameter: number | undefined;
-    action === 'add' ? requestParameter = 1 : requestParameter = -1;
+    isVoteUp ? requestParameter = 1 : requestParameter = -1;
     axios.put(`${baseURLStreamers}/${id}/vote`, {
       vote: requestParameter
     })
   }
 
   return (
-    <button onClick={() => changeVote(name)}>{buttonName}</button>
+    <IconButton onClick={() => changeVote()} aria-label="change vote" sx={{ padding: "0px" }}>
+      {isVoteUp ? <IconBxsUpArrowSquare /> : <IconBxsDownArrowSquare />}
+    </IconButton>
   )
 }
 

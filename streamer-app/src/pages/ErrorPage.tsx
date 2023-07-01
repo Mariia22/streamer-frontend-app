@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useRouteError, isRouteErrorResponse } from "react-router-dom";
 
 export default function ErrorPage() {
@@ -16,12 +17,12 @@ export default function ErrorPage() {
   }
 
   return (
-    <div id="error-page">
+    <Box id="error-page" sx={{ backgroundColor: 'primary.main' }}>
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
         <i>{errorMessage}</i>
       </p>
-    </div>
+    </Box>
   );
 }
