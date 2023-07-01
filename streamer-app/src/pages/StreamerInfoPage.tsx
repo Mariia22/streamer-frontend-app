@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material"
+import { Stack, Typography } from '@mui/material';
 
 const StreamerInfoPage = () => {
   return (
@@ -6,8 +6,7 @@ const StreamerInfoPage = () => {
       <Typography variant="h2">Streamer's info</Typography>
       <div>StreamerInfoPage</div>
     </Stack>
-  )
+  );
+};
 
-}
-
-export default StreamerInfoPage
+export default StreamerInfoPage;

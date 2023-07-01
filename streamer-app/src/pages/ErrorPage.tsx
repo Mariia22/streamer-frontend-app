@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
-import { useRouteError, isRouteErrorResponse } from "react-router-dom";
+import { Box } from '@mui/material';
+import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 
 export default function ErrorPage() {
   const error = useRouteError();
-  let errorMessage: string
+  let errorMessage: string;
 
   if (isRouteErrorResponse(error)) {
     errorMessage = error.error?.message || error.statusText;

@@ -11,6 +11,10 @@ export const baseTheme = createTheme({
   typography: {
     fontFamily: ['Manrope', 'Arial'].join(','),
     fontSize: 16,
+    h1: {
+      fontSize: 32,
+      fontWeight: 700,
+    },
   },
 });
 

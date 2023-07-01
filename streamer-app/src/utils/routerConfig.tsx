@@ -7,12 +7,12 @@ export const routerConfig = [
     id: 0,
     path: '/',
     element: <StreamerFormPage />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
   },
   {
     id: 1,
     path: 'streamer/:id',
     element: <StreamerInfoPage />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
   },
 ];
