@@ -3,6 +3,6 @@ export type StreamerType = {
   name: string;
   platform: string;
   description: string;
-  avatarURL: string;
+  avatarUrl: string;
   vote: number;
 };

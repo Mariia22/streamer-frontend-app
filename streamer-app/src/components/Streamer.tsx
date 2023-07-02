@@ -44,7 +44,9 @@ const Streamer = (streamer: StreamerType) => {
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="h4">{streamer.name}</Typography>
-          <Typography sx={{ color: `${baseTheme.palette.primary.contrastText}` }}>{streamer.platform}</Typography>
+          <Typography variant="h4" sx={{ color: `${baseTheme.palette.primary.contrastText}` }}>
+            {streamer.platform}
+          </Typography>
         </Box>
         <Typography>{streamer.description}</Typography>
       </NavLink>

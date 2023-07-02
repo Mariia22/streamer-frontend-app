@@ -9,14 +9,16 @@ import { baseTheme } from '../style/theme';
 
 const StreamerList = () => {
   const [streamers, setStreamers] = useState<StreamerType[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
-    axios.get(baseURLStreamers).then((response) => {
-      setStreamers(response.data);
-      setIsLoading(false);
-    });
+    axios
+      .get(baseURLStreamers)
+      .then((response) => {
+        setStreamers(response.data);
+      })
+      .catch((error) => console.log(error.message))
+      .finally(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
@@ -44,10 +46,9 @@ const StreamerList = () => {
         gap: '20px',
       }}
     >
-      {streamers?.length > 0 ? (
+      {isLoading && <CircularProgress sx={{ justifyContent: 'center' }} />}
+      {streamers?.length > 0 && !isLoading ? (
         streamers?.map((streamer: StreamerType, key: number) => <Streamer key={key} {...streamer} />)
-      ) : isLoading ? (
-        <CircularProgress sx={{ justifyContent: 'center' }} />
       ) : (
         <Box
           sx={{
@@ -59,6 +60,7 @@ const StreamerList = () => {
             boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04)',
           }}
         >
+          {' '}
           No streamers on the list
         </Box>
       )}
