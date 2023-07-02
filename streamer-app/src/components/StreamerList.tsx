@@ -4,8 +4,9 @@ import { StreamerType } from '../types';
 import Streamer from '../components/Streamer';
 import axios from 'axios';
 import { baseURLStreamers } from '../utils/const';
-import { Box, CircularProgress, Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import { baseTheme } from '../style/theme';
+import Loading from './Loading';
 
 const StreamerList = () => {
   const [streamers, setStreamers] = useState<StreamerType[]>([]);
@@ -39,32 +40,33 @@ const StreamerList = () => {
   }, [setStreamers]);
 
   return (
-    <Stack
-      sx={{
-        alignItems: 'center',
-        flexDirection: 'column',
-        gap: '20px',
-      }}
-    >
-      {isLoading && <CircularProgress sx={{ justifyContent: 'center' }} />}
-      {streamers?.length > 0 && !isLoading ? (
-        streamers?.map((streamer: StreamerType, key: number) => <Streamer key={key} {...streamer} />)
-      ) : (
-        <Box
-          sx={{
-            width: 'calc(100% - 48px)',
-            padding: '10px',
-            textAlign: 'center',
-            backgroundColor: baseTheme.palette.primary.light,
-            borderRadius: '8px',
-            boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04)',
-          }}
-        >
-          {' '}
-          No streamers on the list
-        </Box>
-      )}
-    </Stack>
+    <Loading isLoading={isLoading}>
+      <Stack
+        sx={{
+          alignItems: 'center',
+          flexDirection: 'column',
+          gap: '20px',
+        }}
+      >
+        {streamers?.length > 0 ? (
+          streamers?.map((streamer: StreamerType, key: number) => <Streamer key={key} {...streamer} />)
+        ) : (
+          <Box
+            sx={{
+              width: 'calc(100% - 48px)',
+              padding: '10px',
+              textAlign: 'center',
+              backgroundColor: baseTheme.palette.primary.light,
+              borderRadius: '8px',
+              boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04)',
+            }}
+          >
+            {' '}
+            No streamers on the list
+          </Box>
+        )}
+      </Stack>
+    </Loading>
   );
 };
 

@@ -17,7 +17,6 @@ import { baseTheme } from '../style/theme';
 
 const StreamerForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -39,6 +38,7 @@ const StreamerForm = () => {
         platform: values.platform,
         description: values.description,
       })
+      .catch((error) => console.error(error))
       .finally(() => setIsLoading(false));
   }
 
