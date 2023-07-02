@@ -6,6 +6,7 @@ import { StreamerType } from '../types';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
+import Wrapper from '../components/Wrapper';
 
 const StreamerInfoPage = () => {
   const [streamer, setStreamer] = useState<StreamerType | null>(null);
@@ -24,19 +25,7 @@ const StreamerInfoPage = () => {
 
   return (
     <Loading isLoading={isLoading}>
-      <Stack
-        sx={{
-          margin: '30px auto',
-          padding: '20px',
-          width: '70%',
-          minHeight: '90vh',
-          flexDirection: 'column',
-          gap: '50px',
-          backgroundColor: baseTheme.palette.primary.main,
-          borderRadius: '8px',
-          boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04)',
-        }}
-      >
+      <Wrapper>
         <Typography variant="h2" sx={{ alignContent: 'flex-start' }}>
           Streamer's info
         </Typography>
@@ -65,7 +54,7 @@ const StreamerInfoPage = () => {
             <Typography>The streamer is not found</Typography>
           )}
         </Stack>
-      </Stack>
+      </Wrapper>
     </Loading>
   );
 };

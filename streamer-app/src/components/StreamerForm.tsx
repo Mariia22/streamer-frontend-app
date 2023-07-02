@@ -10,6 +10,7 @@ import {
   Select,
   SelectChangeEvent,
   TextField,
+  useMediaQuery,
 } from '@mui/material';
 import { FormikValues, useFormik } from 'formik';
 import { validationSchema } from '../utils/validationSchema';
@@ -17,6 +18,8 @@ import { baseTheme } from '../style/theme';
 
 const StreamerForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const matches = useMediaQuery('(min-width:600px)');
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -54,7 +57,7 @@ const StreamerForm = () => {
         flexDirection: 'column',
         gap: '10px',
         alignItems: 'center',
-        width: '50%',
+        width: matches ? '50%' : '90%',
         padding: '20px',
         margin: '10px 0 10px 24px',
         backgroundColor: baseTheme.palette.primary.light,

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { StreamerType } from '../types';
 import ChangeButtonVote from './ChangeButtonVote';
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { baseTheme } from '../style/theme';
 
 const Streamer = (streamer: StreamerType) => {
@@ -37,17 +37,18 @@ const Streamer = (streamer: StreamerType) => {
         style={{
           display: 'flex',
           flexDirection: 'column',
+          flexWrap: 'wrap',
           width: '100%',
           color: `${baseTheme.palette.primary.dark}`,
           textDecoration: 'none',
         }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Stack sx={{ justifyContent: 'space-between' }}>
           <Typography variant="h4">{streamer.name}</Typography>
           <Typography variant="h4" sx={{ color: `${baseTheme.palette.primary.contrastText}` }}>
             {streamer.platform}
           </Typography>
-        </Box>
+        </Stack>
         <Typography>{streamer.description}</Typography>
       </NavLink>
     </Stack>

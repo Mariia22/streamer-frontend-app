@@ -1,6 +1,6 @@
-import { Stack, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
-import { baseTheme } from '../style/theme';
+import Wrapper from '../components/Wrapper';
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -18,24 +18,12 @@ export default function ErrorPage() {
   }
 
   return (
-    <Stack
-      sx={{
-        margin: '30px auto',
-        padding: '20px',
-        width: '70%',
-        minHeight: '90vh',
-        flexDirection: 'column',
-        gap: '50px',
-        backgroundColor: baseTheme.palette.primary.main,
-        borderRadius: '8px',
-        boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04)',
-      }}
-    >
+    <Wrapper>
       <Typography variant="h2">Oops!</Typography>
       <Typography>Sorry, an unexpected error has occurred.</Typography>
       <Typography>
         <i>{errorMessage}</i>
       </Typography>
-    </Stack>
+    </Wrapper>
   );
 }

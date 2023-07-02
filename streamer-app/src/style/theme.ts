@@ -92,6 +92,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          wordWrap: 'break-word',
+        },
+      },
+    },
   },
   palette: baseTheme.palette,
   typography: baseTheme.typography,
