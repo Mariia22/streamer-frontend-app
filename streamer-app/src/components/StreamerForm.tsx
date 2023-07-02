@@ -1,7 +1,16 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { baseURLStreamers, platforms } from '../utils/const';
-import { Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
+import {
+  Button,
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+} from '@mui/material';
 import { FormikValues, useFormik } from 'formik';
 import { validationSchema } from '../utils/validationSchema';
 import { baseTheme } from '../style/theme';
@@ -65,14 +74,36 @@ const StreamerForm = () => {
         helperText={formik.touched.name && formik.errors.name}
       />
       <FormControl fullWidth sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="platform">Platform</InputLabel>
-        <Select id="platform" name="platform" label="Platform" value={formik.values.platform} onChange={handleChange}>
+        <InputLabel
+          id="platform"
+          sx={{
+            color:
+              formik.touched.platform && formik.errors.platform
+                ? baseTheme.palette.error.main
+                : baseTheme.palette.secondary.main,
+          }}
+        >
+          Platform
+        </InputLabel>
+        <Select
+          id="platform"
+          name="platform"
+          label="Platform"
+          value={formik.values.platform}
+          onChange={handleChange}
+          error={Boolean(formik.touched.platform && formik.errors.platform)}
+        >
           {platforms.map((platform, index) => (
             <MenuItem key={index} value={platform}>
               {platform}
             </MenuItem>
           ))}
         </Select>
+        {formik.touched.platform && formik.errors.platform ? (
+          <FormHelperText sx={{ color: '#d32f2f', marginLeft: '16px' }}>
+            {formik.touched.platform && formik.errors.platform}
+          </FormHelperText>
+        ) : null}
       </FormControl>
       <TextField
         multiline

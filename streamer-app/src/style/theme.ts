@@ -8,6 +8,12 @@ export const baseTheme = createTheme({
       contrastText: '#FEBB00',
       dark: '#000000',
     },
+    secondary: {
+      main: '#666666',
+    },
+    error: {
+      main: '#d32f2f',
+    },
   },
   typography: {
     fontFamily: ['Manrope', 'Arial'].join(','),
